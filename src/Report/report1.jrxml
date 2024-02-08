@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5697ef61-902e-4ed5-9fcb-0681412d5fd3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="137"/>
+	<parameter name="kode" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from tbjadwal where id = $P{kode}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tempat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="waktu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="112" y="37" width="351" height="37"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SEKRETARIAT : JL. DANAU TEMPE RAYA RW 06 KELURAHAN ABADIJAYA KECAMATAN SUKMAJAYA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="69" y="0" width="436" height="37"/>
+				<textElement textAlignment="Center">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[POSYANDU ANYELIR]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="151" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="12" width="50" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Nomor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="32" width="50" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Lampiran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="52" width="50" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Perihal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="69" y="12" width="19" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="69" y="32" width="19" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="69" y="52" width="19" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e0323440-2949-41bc-a918-c973ac7e2748" x="-21" y="-12" width="598" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="88" y="12" width="80" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[         /           / ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="88" y="32" width="80" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[1 (satu) lembar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="88" y="52" width="146" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Pemberitahuan Jadwal ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="88" y="72" width="158" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Pelaksanaan Kegiatan Posyandu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="110" width="536" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Assalamu'alaikum, menginformasikan bahwa Giat posyandu kita InSyaa Allah akan dilaksanan pada :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="75" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0720e386-b3c6-4b0e-8070-012c9a39c26f" x="41" y="0" width="64" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Hari/Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b23c97b3-4b52-4c1c-96f3-bdb64f9f1714" x="41" y="20" width="64" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Tempat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b5910bb7-4b6c-4280-ada6-95362f37e52f" x="41" y="40" width="64" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Waktu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0720e386-b3c6-4b0e-8070-012c9a39c26f" x="105" y="0" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b5910bb7-4b6c-4280-ada6-95362f37e52f" x="105" y="40" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b23c97b3-4b52-4c1c-96f3-bdb64f9f1714" x="105" y="20" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="85a27665-050d-4f46-95e9-b65bd5da2bdb" x="131" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="59a266b4-5aa4-4bf0-b76b-1a6acc6e5921" x="131" y="20" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tempat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eade30a0-adab-426a-a0e0-32ba65a05b03" x="131" y="40" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{waktu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="191" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="12" width="536" height="17"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Kami mengharapkan sekali kehadiran bapak/ ibu untuk membawa Balitanya ke posyandu Rw 06 dengan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="53" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[- Membawa tempat makan yg ada tutupnya sendiri utk menu PMT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="72" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[- Balita tidak memakai pakaian dari bahan Jeans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="91" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[- Apabila Balita memakai diapers supaya memakai yg Baru d pakai.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="110" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[- Membawa buku KIA / buku Pink]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="153" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Atas perhatian dan kehadirannya kami ucapkan terima kasih.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="19" y="172" width="517" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Note : Untuk kader  di harapkan hadir pukul 08.30 dan makai seragam Kaos kuning]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="160" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="788d8d3b-12c4-401c-85fe-f306e24e6482" x="412" y="96" width="110" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Sri Sulastri]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1cce5506-6913-4e3e-a484-a504cf782e25" x="412" y="30" width="110" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Kepala,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f65470a8-e867-4333-826b-3080f714838c" x="412" y="0" width="32" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="cb04600e-4f25-40ce-bd3f-6bd31925067d" x="444" y="0" width="92" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd MMMMM yyyy", new java.util.Locale("id", "ID")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2f9999bd-44e5-4a4f-be1a-e828c5c22a1a" x="412" y="15" width="110" height="15"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Posyandu Anyelir]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
