@@ -33,10 +33,6 @@ WHERE
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="114" y="37" width="351" height="37"/>
 				<textElement textAlignment="Center">
@@ -51,6 +47,10 @@ WHERE
 				</textElement>
 				<text><![CDATA[POSYANDU ANYELIR]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="ca8ddc5a-29e1-4240-9f49-9a84d0985b91" x="29" y="0" width="69" height="79"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

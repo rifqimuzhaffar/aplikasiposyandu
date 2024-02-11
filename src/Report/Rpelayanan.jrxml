@@ -42,8 +42,8 @@ FROM
 				<text><![CDATA[POSYANDU ANYELIR]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
+				<reportElement uuid="ffb8df7f-7985-43ee-af53-2d02a62d7001" x="23" y="0" width="69" height="78"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

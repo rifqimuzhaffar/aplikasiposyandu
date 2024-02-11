@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5697ef61-902e-4ed5-9fcb-0681412d5fd3">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="137"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="kode" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -41,8 +41,8 @@
 				<text><![CDATA[POSYANDU ANYELIR]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
+				<reportElement uuid="9f63967a-7752-4b4a-8ab6-d72d8700dc87" x="21" y="0" width="67" height="80"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -126,7 +126,7 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[Assalamu'alaikum, menginformasikan bahwa Giat posyandu kita InSyaa Allah akan dilaksanan pada :]]></text>
+				<text><![CDATA[Assalamualaikum, menginformasikan bahwa Giat posyandu kita InSyaa Allah akan dilaksanan pada :]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -204,14 +204,14 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[Kami mengharapkan sekali kehadiran bapak/ ibu untuk membawa Balitanya ke posyandu Rw 06 dengan :]]></text>
+				<text><![CDATA[Kami mengharapkan sekali kehadiran bapak/ ibu untuk membawa Balitanya ke posyandu RW 06 dengan :]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="53" width="517" height="19"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[- Membawa tempat makan yg ada tutupnya sendiri utk menu PMT]]></text>
+				<text><![CDATA[- Membawa tempat makan yang ada tutupnya sendiri untuk menu PMT]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="72" width="517" height="19"/>
@@ -225,7 +225,7 @@
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
-				<text><![CDATA[- Apabila Balita memakai diapers supaya memakai yg Baru d pakai.]]></text>
+				<text><![CDATA[- Apabila Balita memakai diapers supaya memakai yang baru dipakai.]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="118a40ba-f6ef-413a-ae6d-639bc436b451" x="38" y="110" width="517" height="19"/>

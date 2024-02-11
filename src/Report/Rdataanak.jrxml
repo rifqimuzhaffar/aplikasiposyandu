@@ -29,10 +29,6 @@ FROM
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="69" y="0" width="436" height="37"/>
 				<textElement textAlignment="Center">
@@ -47,6 +43,10 @@ FROM
 				</textElement>
 				<text><![CDATA[SEKRETARIAT : JL. DANAU TEMPE RAYA RW 06 KELURAHAN ABADIJAYA KECAMATAN SUKMAJAYA]]></text>
 			</staticText>
+			<image>
+				<reportElement uuid="51e6c070-dbf7-48ea-8698-3aa17bbc93b2" x="31" y="0" width="69" height="79"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

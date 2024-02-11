@@ -47,8 +47,8 @@ WHERE tbpendaftaran.`tgl` BETWEEN $P{awal} AND $P{akhir}]]>
 				<text><![CDATA[POSYANDU ANYELIR]]></text>
 			</staticText>
 			<image>
-				<reportElement uuid="21e8f534-4220-4e5f-aa3f-858f88391f03" x="0" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logohanna-removebg-preview.png"]]></imageExpression>
+				<reportElement uuid="4d8ca58d-8ed1-4855-93e3-7074ba55b4a9" x="26" y="0" width="69" height="79"/>
+				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
