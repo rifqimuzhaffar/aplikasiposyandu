@@ -70,13 +70,13 @@ FROM
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="52" y="0" width="96" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="148" y="0" width="67" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="148" y="0" width="55" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="215" y="0" width="79" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="203" y="0" width="104" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="294" y="0" width="79" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="307" y="0" width="66" height="20"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="373" y="0" width="79" height="20"/>
@@ -99,21 +99,21 @@ FROM
 				<text><![CDATA[Nama Anak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="157b389d-1047-4e1b-baec-7a9789baa9a7" x="148" y="0" width="67" height="20"/>
+				<reportElement uuid="157b389d-1047-4e1b-baec-7a9789baa9a7" x="148" y="0" width="55" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Usia Anak]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1250ee78-2807-46e0-a0ff-2a4ba308f355" x="215" y="0" width="79" height="20"/>
+				<reportElement uuid="1250ee78-2807-46e0-a0ff-2a4ba308f355" x="203" y="0" width="104" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kondisi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2caf09d4-74bd-498f-97ec-3006304705d3" x="294" y="0" width="79" height="20"/>
+				<reportElement uuid="2caf09d4-74bd-498f-97ec-3006304705d3" x="307" y="0" width="66" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -144,13 +144,13 @@ FROM
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="52" y="0" width="96" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="148" y="0" width="67" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="148" y="0" width="55" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="215" y="0" width="79" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="203" y="0" width="104" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="294" y="0" width="79" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="307" y="0" width="66" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="373" y="0" width="79" height="20" backcolor="#FF9999"/>
@@ -169,17 +169,17 @@ FROM
 				<textFieldExpression><![CDATA[$F{tbpelayanan_nama_anak}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ce45ca17-92e4-4872-90fd-3f9a9c4f8b63" x="148" y="0" width="67" height="20"/>
+				<reportElement uuid="ce45ca17-92e4-4872-90fd-3f9a9c4f8b63" x="148" y="0" width="55" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbpelayanan_usia}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="9525768a-3382-4688-9013-e40719679648" x="215" y="0" width="79" height="20"/>
+				<reportElement uuid="9525768a-3382-4688-9013-e40719679648" x="203" y="0" width="104" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbpelayanan_kondisi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="f2aa5b37-abac-4388-8e4e-104c21efa9e0" x="304" y="0" width="69" height="20"/>
+				<reportElement uuid="f2aa5b37-abac-4388-8e4e-104c21efa9e0" x="317" y="0" width="56" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbpelayanan_imunisasi}]]></textFieldExpression>
 			</textField>
