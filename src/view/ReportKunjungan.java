@@ -151,7 +151,7 @@ public class ReportKunjungan extends javax.swing.JFrame {
                 parameter.put("awal", dawal.getDate());
                 parameter.put("akhir", dakhir.getDate());
 
-                String namaFile = "src/Report/Rkunjungan.jasper";
+                String namaFile = "src/Report/NewRkunjungan.jasper";
                 Connection conn = new koneksi().connect();
 
                 File report_file = new File(namaFile);

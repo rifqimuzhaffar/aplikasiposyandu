@@ -3,11 +3,11 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      tbdataanak.`id` AS tbdataanak_id,
      tbdataanak.`nama_anak` AS tbdataanak_nama_anak,
-     tbdataanak.`tempatlahir` AS tbdataanak_tempatlahir,
+     tbdataanak.`nik` AS tbdataanak_nik,
      tbdataanak.`tanggallahir` AS tbdataanak_tanggallahir,
      tbdataanak.`golongandarah` AS tbdataanak_golongandarah,
      tbdataanak.`kelamin` AS tbdataanak_kelamin,
@@ -18,7 +18,7 @@ FROM
 	</queryString>
 	<field name="tbdataanak_id" class="java.lang.String"/>
 	<field name="tbdataanak_nama_anak" class="java.lang.String"/>
-	<field name="tbdataanak_tempatlahir" class="java.lang.String"/>
+	<field name="tbdataanak_nik" class="java.lang.String"/>
 	<field name="tbdataanak_tanggallahir" class="java.sql.Date"/>
 	<field name="tbdataanak_golongandarah" class="java.lang.String"/>
 	<field name="tbdataanak_kelamin" class="java.lang.String"/>
@@ -91,48 +91,64 @@ FROM
 			</rectangle>
 			<staticText>
 				<reportElement uuid="0b5f68ee-4ebe-4f4e-8345-00eda6820208" x="0" y="0" width="57" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="1a78889c-cdc3-4b5b-8cdb-184a8cdc7556" x="57" y="0" width="120" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Nama Anak]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="d8891970-8c3b-424a-98f5-3ac396ae7294" x="177" y="0" width="81" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Tempat Lahir]]></text>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIK]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="ae418eaf-76cb-4527-a8d8-f84ee7af4f4d" x="258" y="0" width="88" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="fcf94094-4bf6-448d-a208-8eb21f018d5c" x="346" y="0" width="61" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Gol. Darah]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="b7b4d882-9865-4ccf-b5fb-a80421fbd353" x="407" y="0" width="51" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[Kelamin]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="af7f0f27-dc80-4705-a84b-621914e7b67f" x="458" y="0" width="47" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[BB]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="ade2a6d6-aea0-468a-8f20-fff57591675a" x="505" y="0" width="50" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[TB]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<rectangle>
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="0" y="0" width="57" height="20" backcolor="#FF9999"/>
 			</rectangle>
@@ -170,7 +186,7 @@ FROM
 			<textField>
 				<reportElement uuid="15ca2623-6c36-4db6-9e96-aa816fd4f300" x="192" y="0" width="66" height="20"/>
 				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tbdataanak_tempatlahir}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tbdataanak_nik}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
 				<reportElement uuid="02fd5735-12fd-4389-85bc-9e9bd2a96be5" x="258" y="0" width="88" height="20"/>
