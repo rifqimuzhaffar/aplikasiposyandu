@@ -50,7 +50,7 @@ WHERE
 			</staticText>
 			<image>
 				<reportElement uuid="ca8ddc5a-29e1-4240-9f49-9a84d0985b91" x="16" y="-1" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["gambar2/logo.jpg.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>

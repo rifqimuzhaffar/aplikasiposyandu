@@ -36,7 +36,7 @@ WHERE tbpendaftaran.`tgl` BETWEEN $P{awal} AND $P{akhir}]]>
 		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement uuid="4d8ca58d-8ed1-4855-93e3-7074ba55b4a9" x="22" y="0" width="69" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["gambar2/logo.jpg.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="65" y="0" width="436" height="37"/>
