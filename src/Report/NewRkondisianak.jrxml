@@ -38,10 +38,6 @@ FROM
 				</textElement>
 				<text><![CDATA[POSYANDU ANYELIR]]></text>
 			</staticText>
-			<image>
-				<reportElement uuid="42bc1a75-6bad-4148-87c7-05b1aa3e3a7f" x="51" y="-5" width="76" height="79"/>
-				<imageExpression><![CDATA["C:\\Users\\lenov\\Documents\\NetBeansProjects\\posyanduhanna\\src\\gambar2\\logo.jpg.jpg"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement uuid="38994dd3-e46b-4267-8aac-584cf3cd5947" x="157" y="37" width="486" height="37"/>
 				<textElement textAlignment="Center">
@@ -52,6 +48,10 @@ FROM
 			<line>
 				<reportElement uuid="6492ed5e-3256-48bd-ab9f-c41bc31b35ac" x="-19" y="78" width="842" height="1"/>
 			</line>
+			<image>
+				<reportElement uuid="7efe8204-11cd-4349-a8b8-a9e98679b778" x="61" y="-10" width="83" height="74"/>
+				<imageExpression><![CDATA["gambar2/logo.jpg.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
