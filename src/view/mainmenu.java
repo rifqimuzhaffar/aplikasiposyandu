@@ -34,6 +34,7 @@ public class mainmenu extends javax.swing.JFrame {
     private DefaultTableModel tabmode3;
     private DefaultTableModel tabmode4;
     private DefaultTableModel tabmode5;
+    private DefaultTableModel tabmode6;
     
     public void tanggal(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -185,6 +186,30 @@ public class mainmenu extends javax.swing.JFrame {
         }
     }
     
+    private void autoNumber7(){
+        try{
+            String sql = "select max(right(id,3)) as no from tbbidan";
+            java.sql.Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery(sql);
+            while (rs.next()){
+                if(rs.first() == false){
+                    tidbidan.setText("BD001");
+                }else{
+                    rs.last();
+                    int set_id = rs.getInt(1)+1;
+                    String no = String.valueOf(set_id);
+                    int id_next = no.length();
+                    for (int a = 0; a <3 - id_next; a++){
+                        no = "0" + no;
+                    }
+                    tidbidan.setText("BD" + no);
+                }
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(mainmenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void tanggal_lahir_anak() {
         try {
             String sql = "Select * from tbdataanak where id='"+tidanak.getText()+"'";
@@ -251,6 +276,12 @@ public class mainmenu extends javax.swing.JFrame {
         jdwl.setDate(null);
         ttempat.setText("");
         twaktu.setText("");
+    }
+    
+    protected void kosong7(){
+        tnamabidan.setText("");
+        talamatbidan.setText("");
+        tnohpbidan.setText("");
     }
     
     protected void datatable1(){
@@ -397,7 +428,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable6(){
-    Object [] Baris = {"ID","HARI/TANGGAL","TEMPAT","WAKTU"};
+    Object [] Baris = {"ID","BIDAN","HARI/TANGGAL","TEMPAT","WAKTU"};
     tabmode5 = new DefaultTableModel(null, Baris);
     tabeljadwal.setModel(tabmode5);
     try {  
@@ -407,12 +438,35 @@ public class mainmenu extends javax.swing.JFrame {
         ResultSet hasil = stat.executeQuery(sql);
         while (hasil.next()){
             String a = hasil.getString("id");
-            String b = hasil.getString("tanggal");
-            String c = hasil.getString("tempat");
-            String d = hasil.getString("waktu");
+            String b = hasil.getString("bidan");
+            String c = hasil.getString("tanggal");
+            String d = hasil.getString("tempat");
+            String e = hasil.getString("waktu");
+            
+            String[] data={a,b,c,d,e};
+            tabmode5.addRow(data);
+        }
+    }catch (Exception e){
+        }
+    }
+    
+    protected void datatable7(){
+    Object [] Baris = {"ID","NAMA","ALAMAT","NO HP"};
+    tabmode6 = new DefaultTableModel(null, Baris);
+    tabelbidan.setModel(tabmode6);
+    try {  
+        String sql = "Select * from tbbidan";
+    
+        java.sql.Statement stat = conn.createStatement();
+        ResultSet hasil = stat.executeQuery(sql);
+        while (hasil.next()){
+            String a = hasil.getString("id");
+            String b = hasil.getString("nama_bidan");
+            String c = hasil.getString("alamat");
+            String d = hasil.getString("telp");
             
             String[] data={a,b,c,d};
-            tabmode5.addRow(data);
+            tabmode6.addRow(data);
         }
     }catch (Exception e){
         }
@@ -496,6 +550,22 @@ public class mainmenu extends javax.swing.JFrame {
         } catch (Exception e) {}
     }
     
+    public void bidan(){
+        try{
+            cbbidan.removeAllItems();
+            String sqlf = "select * from tbbidan";
+            java.sql.Statement stat = conn.createStatement();
+            ResultSet hasil = stat.executeQuery(sqlf);
+            while(hasil.next()){
+                cbbidan.addItem(hasil.getString("nama_bidan"));
+            }
+            hasil.last();
+            int jumlahdata = hasil.getRow();
+            hasil.first();
+        }catch(Exception e){
+        }
+    }
+    
     public mainmenu() {
         initComponents();
         tanggal();
@@ -508,18 +578,21 @@ public class mainmenu extends javax.swing.JFrame {
         autoNumber4();
         autoNumber5();
         autoNumber6();
+        autoNumber7();
         datatable1();
         datatable2();
         datatable3();
         datatable4();
         datatable5();
         datatable6();
+        datatable7();
         tidpendaftaran.setEnabled(false);
         tidanak.setEnabled(false);
         tidkunjungan.setEnabled(false);
         tidkondisi.setEnabled(false);
         tidpelayanan.setEnabled(false);
         tidjadwal.setEnabled(false);
+        tidbidan.setEnabled(false);
     }
 
     /**
@@ -547,6 +620,7 @@ public class mainmenu extends javax.swing.JFrame {
         bkeluar = new javax.swing.JButton();
         paneltanggal = new javax.swing.JPanel();
         tgl = new javax.swing.JLabel();
+        bbidan = new javax.swing.JButton();
         panelmain = new javax.swing.JPanel();
         paneldasboard = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -711,6 +785,26 @@ public class mainmenu extends javax.swing.JFrame {
         tidjadwal = new javax.swing.JTextField();
         labelu10 = new javax.swing.JLabel();
         bcetak6 = new javax.swing.JButton();
+        cbbidan = new javax.swing.JComboBox<>();
+        labelid8 = new javax.swing.JLabel();
+        panelbidan = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        labelu12 = new javax.swing.JLabel();
+        tidbidan = new javax.swing.JTextField();
+        labelu13 = new javax.swing.JLabel();
+        tnamabidan = new javax.swing.JTextField();
+        labelu14 = new javax.swing.JLabel();
+        talamatbidan = new javax.swing.JTextField();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tabelbidan = new javax.swing.JTable();
+        bsimpan6 = new javax.swing.JButton();
+        bubah6 = new javax.swing.JButton();
+        bhapus6 = new javax.swing.JButton();
+        bbersih6 = new javax.swing.JButton();
+        labelu15 = new javax.swing.JLabel();
+        tnohpbidan = new javax.swing.JTextField();
+        bcetak7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -772,7 +866,7 @@ public class mainmenu extends javax.swing.JFrame {
         panelmenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153)));
 
         bjadwal.setBackground(new java.awt.Color(148, 123, 192));
-        bjadwal.setText("JADWAL");
+        bjadwal.setText("JADWAL TUGAS");
         bjadwal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bjadwalMouseEntered(evt);
@@ -856,7 +950,7 @@ public class mainmenu extends javax.swing.JFrame {
         });
 
         bkondisi.setBackground(new java.awt.Color(148, 123, 192));
-        bkondisi.setText("KONDISI KESEHATAN");
+        bkondisi.setText("HASIL PEMERIKSAAN");
         bkondisi.setBorder(null);
         bkondisi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -923,10 +1017,30 @@ public class mainmenu extends javax.swing.JFrame {
             .addComponent(tgl, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
+        bbidan.setBackground(new java.awt.Color(148, 123, 192));
+        bbidan.setText("BIDAN");
+        bbidan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bbidanMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bbidanMouseExited(evt);
+            }
+        });
+        bbidan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbidanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelmenuLayout = new javax.swing.GroupLayout(panelmenu);
         panelmenu.setLayout(panelmenuLayout);
         panelmenuLayout.setHorizontalGroup(
             panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelmenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(paneltanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
             .addGroup(panelmenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -943,11 +1057,10 @@ public class mainmenu extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelmenuLayout.createSequentialGroup()
                         .addGap(0, 45, Short.MAX_VALUE)
                         .addComponent(bkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelmenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(paneltanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                        .addGap(53, 53, 53))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelmenuLayout.createSequentialGroup()
+                        .addComponent(bbidan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         panelmenuLayout.setVerticalGroup(
             panelmenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -966,9 +1079,11 @@ public class mainmenu extends javax.swing.JFrame {
                 .addComponent(bkondisi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(bpelayanan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(18, 18, 18)
+                .addComponent(bbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(bjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(47, 47, 47)
                 .addComponent(bkeluar)
                 .addGap(19, 19, 19))
         );
@@ -2116,7 +2231,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("KONDISI KESEHATAN");
+        jLabel15.setText("HASIL PEMERIKSAAN");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -2192,7 +2307,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         labelid3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelid3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelid3.setText("ID KONDISI ANAK");
+        labelid3.setText("ID PEMERIKSAAN");
         labelid3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         labelee1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -2979,7 +3094,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("JADWAL");
+        jLabel17.setText("JADWAL TUGAS");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -3161,6 +3276,13 @@ public class mainmenu extends javax.swing.JFrame {
             }
         });
 
+        cbbidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        labelid8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelid8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelid8.setText("Nama Bidan");
+        labelid8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout paneljadwalLayout = new javax.swing.GroupLayout(paneljadwal);
         paneljadwal.setLayout(paneljadwalLayout);
         paneljadwalLayout.setHorizontalGroup(
@@ -3192,14 +3314,18 @@ public class mainmenu extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jdwl, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(paneljadwalLayout.createSequentialGroup()
-                                    .addComponent(labelu8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ttempat, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(paneljadwalLayout.createSequentialGroup()
                                     .addComponent(labelu10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(tidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(121, 121, 121))))))
+                                    .addGap(121, 121, 121)))
+                            .addGroup(paneljadwalLayout.createSequentialGroup()
+                                .addComponent(labelid8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paneljadwalLayout.createSequentialGroup()
+                                .addComponent(labelu8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ttempat, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         paneljadwalLayout.setVerticalGroup(
@@ -3212,19 +3338,23 @@ public class mainmenu extends javax.swing.JFrame {
                 .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tidjadwal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelu10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelid8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelid7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jdwl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(13, 13, 13)
                 .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ttempat, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelu8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelu9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(twaktu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(paneljadwalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bsimpan5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bubah5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3239,6 +3369,280 @@ public class mainmenu extends javax.swing.JFrame {
         jdwl.setDateFormatString("EEEE, dd MMMM yyyy");
 
         panelmain.add(paneljadwal, "card8");
+
+        panelbidan.setBackground(new java.awt.Color(255, 153, 153));
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("BIDAN");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        labelu12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelu12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelu12.setText("ID");
+        labelu12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tidbidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tidbidan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tidbidanActionPerformed(evt);
+            }
+        });
+
+        labelu13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelu13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelu13.setText("Nama");
+        labelu13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tnamabidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tnamabidan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tnamabidanActionPerformed(evt);
+            }
+        });
+
+        labelu14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelu14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelu14.setText("Alamat");
+        labelu14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        talamatbidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        talamatbidan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                talamatbidanActionPerformed(evt);
+            }
+        });
+
+        tabelbidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tabelbidan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+            }
+        ));
+        tabelbidan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tabelbidan.setRowHeight(24);
+        tabelbidan.setRowMargin(2);
+        tabelbidan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelbidanMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(tabelbidan);
+
+        bsimpan6.setBackground(new java.awt.Color(204, 204, 204));
+        bsimpan6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bsimpan6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar2/save-30-w11.png"))); // NOI18N
+        bsimpan6.setText("SIMPAN");
+        bsimpan6.setContentAreaFilled(false);
+        bsimpan6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bsimpan6.setOpaque(true);
+        bsimpan6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bsimpan6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bsimpan6MouseExited(evt);
+            }
+        });
+        bsimpan6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsimpan6ActionPerformed(evt);
+            }
+        });
+
+        bubah6.setBackground(new java.awt.Color(204, 204, 204));
+        bubah6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bubah6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar2/edit-30-w11.png"))); // NOI18N
+        bubah6.setText("UBAH");
+        bubah6.setContentAreaFilled(false);
+        bubah6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bubah6.setOpaque(true);
+        bubah6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bubah6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bubah6MouseExited(evt);
+            }
+        });
+        bubah6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bubah6ActionPerformed(evt);
+            }
+        });
+
+        bhapus6.setBackground(new java.awt.Color(204, 204, 204));
+        bhapus6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bhapus6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar2/delete-30-w11.png"))); // NOI18N
+        bhapus6.setText("HAPUS");
+        bhapus6.setContentAreaFilled(false);
+        bhapus6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bhapus6.setOpaque(true);
+        bhapus6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bhapus6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bhapus6MouseExited(evt);
+            }
+        });
+        bhapus6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bhapus6ActionPerformed(evt);
+            }
+        });
+
+        bbersih6.setBackground(new java.awt.Color(204, 204, 204));
+        bbersih6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bbersih6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar2/icons8-refresh-30.png"))); // NOI18N
+        bbersih6.setContentAreaFilled(false);
+        bbersih6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bbersih6.setOpaque(true);
+        bbersih6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bbersih6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bbersih6MouseExited(evt);
+            }
+        });
+        bbersih6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bbersih6ActionPerformed(evt);
+            }
+        });
+
+        labelu15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelu15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelu15.setText("NO HP");
+        labelu15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tnohpbidan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tnohpbidan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tnohpbidanActionPerformed(evt);
+            }
+        });
+        tnohpbidan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tnohpbidanKeyTyped(evt);
+            }
+        });
+
+        bcetak7.setBackground(new java.awt.Color(204, 204, 204));
+        bcetak7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        bcetak7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar2/hasil-transformed.png"))); // NOI18N
+        bcetak7.setText("CETAK");
+        bcetak7.setContentAreaFilled(false);
+        bcetak7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bcetak7.setOpaque(true);
+        bcetak7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bcetak7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bcetak7MouseExited(evt);
+            }
+        });
+        bcetak7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bcetak7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelbidanLayout = new javax.swing.GroupLayout(panelbidan);
+        panelbidan.setLayout(panelbidanLayout);
+        panelbidanLayout.setHorizontalGroup(
+            panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelbidanLayout.createSequentialGroup()
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelbidanLayout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(526, 526, 526)
+                        .addComponent(bcetak7))
+                    .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelbidanLayout.createSequentialGroup()
+                                .addComponent(labelu14, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(talamatbidan))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(panelbidanLayout.createSequentialGroup()
+                                    .addComponent(labelu13, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tnamabidan, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelbidanLayout.createSequentialGroup()
+                                    .addComponent(labelu12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(tidbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(121, 121, 121)))
+                            .addGroup(panelbidanLayout.createSequentialGroup()
+                                .addComponent(labelu15, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tnohpbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelbidanLayout.createSequentialGroup()
+                            .addComponent(bsimpan6)
+                            .addGap(18, 18, 18)
+                            .addComponent(bubah6)
+                            .addGap(18, 18, 18)
+                            .addComponent(bhapus6)
+                            .addGap(18, 18, 18)
+                            .addComponent(bbersih6))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        panelbidanLayout.setVerticalGroup(
+            panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelbidanLayout.createSequentialGroup()
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bcetak7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tidbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelu12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tnamabidan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelu13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelu14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(talamatbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelu15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tnohpbidan, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(panelbidanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bsimpan6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bubah6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bbersih6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bhapus6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        panelmain.add(panelbidan, "card9");
 
         javax.swing.GroupLayout panelutamaLayout = new javax.swing.GroupLayout(panelutama);
         panelutama.setLayout(panelutamaLayout);
@@ -3405,6 +3809,7 @@ public class mainmenu extends javax.swing.JFrame {
         panelmain.add(paneljadwal);
         panelmain.repaint();
         panelmain.revalidate();
+        bidan();
     }//GEN-LAST:event_bjadwalActionPerformed
 
     private void bkeluarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bkeluarMouseEntered
@@ -4479,21 +4884,23 @@ public class mainmenu extends javax.swing.JFrame {
         String b = tabmode5.getValueAt (bar, 1).toString();
         String c = tabmode5.getValueAt (bar, 2).toString();
         String d = tabmode5.getValueAt (bar, 3).toString();
+        String e = tabmode5.getValueAt (bar, 4).toString();
         
         SimpleDateFormat inputFormat = new SimpleDateFormat("EEEE, dd MMM yyyy", new Locale("id"));
         SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date tanggal = null;
         try {
-            tanggal = inputFormat.parse(b);
+            tanggal = inputFormat.parse(c);
         } catch (ParseException ex) {
             ex.printStackTrace();
         }
         String tanggalString = outputFormat.format(tanggal);
-        
+
         tidjadwal.setText(a);
+        cbbidan.setSelectedItem(b);
         jdwl.setDate(tanggal);
-        ttempat.setText(c);
-        twaktu.setText(d);
+        ttempat.setText(d);
+        twaktu.setText(e);
     }//GEN-LAST:event_tabeljadwalMouseClicked
 
     private void bsimpan5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bsimpan5MouseEntered
@@ -4510,7 +4917,7 @@ public class mainmenu extends javax.swing.JFrame {
         String tampilan = "EEEE, dd MMMM yyyy";
         SimpleDateFormat fm = new SimpleDateFormat(tampilan, new Locale("id"));
         String tanggal  = String.valueOf(fm.format(jdwl.getDate()));
-        String sql = "insert into tbjadwal values (?,?,?,?)";
+        String sql = "insert into tbjadwal values (?,?,?,?,?)";
         try{
             PreparedStatement stat = conn.prepareStatement(sql);
             if (tidjadwal.getText().isEmpty() || ttempat.getText().isEmpty()
@@ -4518,9 +4925,10 @@ public class mainmenu extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Semua data harus terisi", "Notice !!!", JOptionPane.WARNING_MESSAGE);
             } else {
                 stat.setString(1, tidjadwal.getText());
-                stat.setString(2, tanggal);
-                stat.setString(3, ttempat.getText());
-                stat.setString(4, twaktu.getText());
+                stat.setString(2, cbbidan.getSelectedItem().toString());
+                stat.setString(3, tanggal);
+                stat.setString(4, ttempat.getText());
+                stat.setString(5, twaktu.getText());
                 
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
@@ -4554,12 +4962,13 @@ public class mainmenu extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Semua data harus terisi", "Notice !!!", JOptionPane.WARNING_MESSAGE);
         } else {
             try{
-                String sql = "update tbjadwal set tanggal=?,tempat=?,waktu=? where id=?";
+                String sql = "update tbjadwal set bidan=?,tanggal=?,tempat=?,waktu=? where id=?";
                 PreparedStatement stat = conn.prepareStatement(sql);
-                stat.setString(1, tanggal);
-                stat.setString(2, ttempat.getText());
-                stat.setString(3, twaktu.getText());
-                stat.setString(4, tidjadwal.getText());
+                stat.setString(1, cbbidan.getSelectedItem().toString());
+                stat.setString(2, tanggal);
+                stat.setString(3, ttempat.getText());
+                stat.setString(4, twaktu.getText());
+                stat.setString(5, tidjadwal.getText());
 
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Data Berhasil diubah");
@@ -4716,16 +5125,14 @@ public class mainmenu extends javax.swing.JFrame {
 
     private void bcetak6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcetak6ActionPerformed
         try {
-            String namaFile = "src/Report/report1.jasper";
+            String namaFile = "src/Report/Rjadwaltugas.jasper";
             Connection conn = new koneksi().connect();
             HashMap parameter = new HashMap();
-            parameter.put("kode", tidjadwal.getText());
             File report_file = new File(namaFile);
             JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, conn);
             JasperViewer.viewReport(jasperPrint, false); //coba
             JasperViewer.setDefaultLookAndFeelDecorated(true);
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e.getMessage());
         }
@@ -4878,6 +5285,197 @@ public class mainmenu extends javax.swing.JFrame {
         evt.consume();
         }
     }//GEN-LAST:event_tlenganKeyTyped
+
+    private void bbidanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bbidanMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bbidanMouseEntered
+
+    private void bbidanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bbidanMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bbidanMouseExited
+
+    private void bbidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbidanActionPerformed
+        panelmain.removeAll();
+        panelmain.repaint();
+        panelmain.revalidate();
+        //add panel
+        panelmain.add(panelbidan);
+        panelmain.repaint();
+        panelmain.revalidate();
+    }//GEN-LAST:event_bbidanActionPerformed
+
+    private void tidbidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidbidanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tidbidanActionPerformed
+
+    private void tnamabidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tnamabidanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tnamabidanActionPerformed
+
+    private void talamatbidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_talamatbidanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_talamatbidanActionPerformed
+
+    private void tabelbidanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelbidanMouseClicked
+        int bar = tabelbidan.getSelectedRow();
+        String a = tabmode6.getValueAt (bar, 0).toString();
+        String b = tabmode6.getValueAt (bar, 1).toString();
+        String c = tabmode6.getValueAt (bar, 2).toString();
+        String d = tabmode6.getValueAt (bar, 3).toString();
+        
+        tidbidan.setText(a);
+        tnamabidan.setText(b);
+        talamatbidan.setText(c);
+        tnohpbidan.setText(d);
+    }//GEN-LAST:event_tabelbidanMouseClicked
+
+    private void bsimpan6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bsimpan6MouseEntered
+        bsimpan6.setBackground(new Color(0,0,204));
+        bsimpan6.setForeground(Color.white);
+    }//GEN-LAST:event_bsimpan6MouseEntered
+
+    private void bsimpan6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bsimpan6MouseExited
+        bsimpan6.setBackground(new Color(204,204,204));
+        bsimpan6.setForeground(Color.black);
+    }//GEN-LAST:event_bsimpan6MouseExited
+
+    private void bsimpan6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsimpan6ActionPerformed
+        String sql = "insert into tbbidan values (?,?,?,?)";
+        try{
+            PreparedStatement stat = conn.prepareStatement(sql);
+            if (tnohpbidan.getText().isEmpty() || tnamabidan.getText().isEmpty()
+                || talamatbidan.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Semua data harus terisi", "Notice !!!", JOptionPane.WARNING_MESSAGE);
+            } else {
+                stat.setString(1, tidbidan.getText());
+                stat.setString(2, tnamabidan.getText());
+                stat.setString(3, talamatbidan.getText());
+                stat.setString(4, tnohpbidan.getText());
+                
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
+                kosong7();
+                autoNumber7();
+                tnamabidan.requestFocus();
+                datatable7();
+                tidbidan.setEnabled(false);
+            }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Data Gagal Disimpan"+e);
+        }
+    }//GEN-LAST:event_bsimpan6ActionPerformed
+
+    private void bubah6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bubah6MouseEntered
+        bubah6.setBackground(new Color(0,0,204));
+        bubah6.setForeground(Color.white);
+    }//GEN-LAST:event_bubah6MouseEntered
+
+    private void bubah6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bubah6MouseExited
+        bubah6.setBackground(new Color(204,204,204));
+        bubah6.setForeground(Color.black);
+    }//GEN-LAST:event_bubah6MouseExited
+
+    private void bubah6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bubah6ActionPerformed
+        if (tnamabidan.getText().isEmpty() || talamatbidan.getText().isEmpty()
+                || tnohpbidan.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Semua data harus terisi", "Notice !!!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try{
+                String sql = "update tbbidan set nama_bidan=?,alamat=?,telp=? where id=?";
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.setString(1, tnamabidan.getText());
+                stat.setString(2, talamatbidan.getText());
+                stat.setString(3, tnohpbidan.getText());
+                stat.setString(4, tidbidan.getText());
+
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Data Berhasil diubah");
+                kosong7();
+                autoNumber7();
+                datatable7();
+            }catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Data Gagal Diubah"+e);
+
+            }
+        }
+    }//GEN-LAST:event_bubah6ActionPerformed
+
+    private void bhapus6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bhapus6MouseEntered
+        bhapus6.setBackground(new Color(0,0,204));
+        bhapus6.setForeground(Color.white);
+    }//GEN-LAST:event_bhapus6MouseEntered
+
+    private void bhapus6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bhapus6MouseExited
+        bhapus6.setBackground(new Color(204,204,204));
+        bhapus6.setForeground(Color.black);
+    }//GEN-LAST:event_bhapus6MouseExited
+
+    private void bhapus6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhapus6ActionPerformed
+        int ok = JOptionPane.showConfirmDialog(null,"hapus","Konfirmasi Dialog", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (ok==0){
+            String sql="delete from tbbidan where id='"+tidbidan.getText()+"'";
+            try {
+                PreparedStatement stat = conn.prepareStatement(sql);
+                stat.executeUpdate();
+                JOptionPane.showMessageDialog(null, "data berhasil dihapus");
+                kosong7();
+                datatable7();
+                autoNumber7();
+            } catch (SQLException e){
+                JOptionPane.showMessageDialog(null, "Data gagal dihapus"+e);
+            }
+        }
+    }//GEN-LAST:event_bhapus6ActionPerformed
+
+    private void bbersih6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bbersih6MouseEntered
+        bbersih6.setBackground(new Color(0,0,204));
+        bbersih6.setForeground(Color.white);
+    }//GEN-LAST:event_bbersih6MouseEntered
+
+    private void bbersih6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bbersih6MouseExited
+        bbersih6.setBackground(new Color(204,204,204));
+        bbersih6.setForeground(Color.black);
+    }//GEN-LAST:event_bbersih6MouseExited
+
+    private void bbersih6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bbersih6ActionPerformed
+        kosong7();
+    }//GEN-LAST:event_bbersih6ActionPerformed
+
+    private void tnohpbidanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tnohpbidanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tnohpbidanActionPerformed
+
+    private void tnohpbidanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tnohpbidanKeyTyped
+        char number = evt.getKeyChar();
+        if (!(Character.isDigit(number) || number == KeyEvent.VK_BACK_SPACE || number == KeyEvent.VK_DELETE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_tnohpbidanKeyTyped
+
+    private void bcetak7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcetak7MouseEntered
+        bcetak7.setBackground(new Color(0,0,204));
+        bcetak7.setForeground(Color.white);
+    }//GEN-LAST:event_bcetak7MouseEntered
+
+    private void bcetak7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcetak7MouseExited
+        bcetak7.setBackground(new Color(204,204,204));
+        bcetak7.setForeground(Color.black);
+    }//GEN-LAST:event_bcetak7MouseExited
+
+    private void bcetak7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcetak7ActionPerformed
+        try {
+            String namaFile = "src/Report/Rbidan.jasper";
+            Connection conn = new koneksi().connect();
+            HashMap parameter = new HashMap();
+            File report_file = new File(namaFile);
+            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameter, conn);
+            JasperViewer.viewReport(jasperPrint, false); //coba
+            JasperViewer.setDefaultLookAndFeelDecorated(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+    }//GEN-LAST:event_bcetak7ActionPerformed
     
      /**
      * @param args the command line arguments
@@ -4921,6 +5519,8 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JButton bbersih3;
     private javax.swing.JButton bbersih4;
     private javax.swing.JButton bbersih5;
+    private javax.swing.JButton bbersih6;
+    private javax.swing.JButton bbidan;
     private javax.swing.JButton bcaridataanak;
     private javax.swing.JButton bcarikondisi;
     private javax.swing.JButton bcarikunjungan;
@@ -4932,6 +5532,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JButton bcetak4;
     private javax.swing.JButton bcetak5;
     private javax.swing.JButton bcetak6;
+    private javax.swing.JButton bcetak7;
     private javax.swing.JButton bdasboard;
     private javax.swing.JButton bdataanak;
     private javax.swing.JButton bhapus;
@@ -4940,6 +5541,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JButton bhapus3;
     private javax.swing.JButton bhapus4;
     private javax.swing.JButton bhapus5;
+    private javax.swing.JButton bhapus6;
     private javax.swing.JButton bjadwal;
     private javax.swing.JButton bkeluar;
     private javax.swing.JButton bkondisi;
@@ -4952,12 +5554,15 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JButton bsimpan3;
     private javax.swing.JButton bsimpan4;
     private javax.swing.JButton bsimpan5;
+    private javax.swing.JButton bsimpan6;
     private javax.swing.JButton bubah;
     private javax.swing.JButton bubah1;
     private javax.swing.JButton bubah2;
     private javax.swing.JButton bubah3;
     private javax.swing.JButton bubah4;
     private javax.swing.JButton bubah5;
+    private javax.swing.JButton bubah6;
+    private javax.swing.JComboBox<String> cbbidan;
     private javax.swing.JComboBox<String> cbgolongandarah;
     private javax.swing.JComboBox<String> cbidkunjungan;
     private javax.swing.JComboBox<String> cbimunisasi;
@@ -4975,6 +5580,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -4983,6 +5589,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -4990,6 +5597,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private com.toedter.calendar.JDateChooser jdwl;
     private javax.swing.JLabel judul1;
     private javax.swing.JLabel judul2;
@@ -5017,6 +5625,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel labelid5;
     private javax.swing.JLabel labelid6;
     private javax.swing.JLabel labelid7;
+    private javax.swing.JLabel labelid8;
     private javax.swing.JLabel labelimun;
     private javax.swing.JLabel labeljk;
     private javax.swing.JLabel labelnama;
@@ -5032,6 +5641,10 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel labelu1;
     private javax.swing.JLabel labelu10;
     private javax.swing.JLabel labelu11;
+    private javax.swing.JLabel labelu12;
+    private javax.swing.JLabel labelu13;
+    private javax.swing.JLabel labelu14;
+    private javax.swing.JLabel labelu15;
     private javax.swing.JLabel labelu2;
     private javax.swing.JLabel labelu3;
     private javax.swing.JLabel labelu4;
@@ -5041,6 +5654,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel labelu8;
     private javax.swing.JLabel labelu9;
     private javax.swing.JLabel logo;
+    private javax.swing.JPanel panelbidan;
     private javax.swing.JPanel paneldasboard;
     private javax.swing.JPanel paneldataanak;
     private javax.swing.JPanel panelheader;
@@ -5055,6 +5669,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JPanel panelutama;
     private javax.swing.JRadioButton rj1;
     private javax.swing.JRadioButton rj2;
+    private javax.swing.JTable tabelbidan;
     private javax.swing.JTable tabeldataanak;
     private javax.swing.JTable tabeljadwal;
     private javax.swing.JTable tabelkondisi;
@@ -5062,6 +5677,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JTable tabelpelayanan;
     private javax.swing.JTable tabelpendaftaran;
     private javax.swing.JTextField talamat;
+    private javax.swing.JTextField talamatbidan;
     private javax.swing.JTextField tberat;
     private javax.swing.JTextField tberatlahir;
     private javax.swing.JTextField tcaridataanak;
@@ -5074,6 +5690,7 @@ public class mainmenu extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser tglkunjungan;
     private com.toedter.calendar.JDateChooser tgllahiranak;
     private javax.swing.JTextField tidanak;
+    private javax.swing.JTextField tidbidan;
     private javax.swing.JTextField tidjadwal;
     private javax.swing.JTextField tidkondisi;
     private javax.swing.JTextField tidkunjungan;
@@ -5084,10 +5701,12 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JTextField tlingkar;
     private javax.swing.JTextField tnamaanak;
     private javax.swing.JTextField tnamaanakkondisi;
+    private javax.swing.JTextField tnamabidan;
     private javax.swing.JTextField tnamaorangtua;
     private javax.swing.JTextField tnamaorangtuakunjungan;
     private javax.swing.JTextField tnik;
     private javax.swing.JTextField tnohp;
+    private javax.swing.JTextField tnohpbidan;
     private javax.swing.JTextField trt;
     private javax.swing.JTextField ttempat;
     private javax.swing.JTextField ttinggi;
