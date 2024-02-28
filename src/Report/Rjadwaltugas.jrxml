@@ -53,7 +53,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DATA BIDAN]]></text>
+				<text><![CDATA[JADWAL TUGAS]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
