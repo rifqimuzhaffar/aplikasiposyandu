@@ -3,9 +3,10 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      tbbidan.`id` AS tbbidan_id,
+     tbbidan.`nik_bidan` AS tbbidan_nik_bidan,
      tbbidan.`nama_bidan` AS tbbidan_nama_bidan,
      tbbidan.`alamat` AS tbbidan_alamat,
      tbbidan.`telp` AS tbbidan_telp
@@ -13,6 +14,7 @@ FROM
      `tbbidan` tbbidan]]>
 	</queryString>
 	<field name="tbbidan_id" class="java.lang.String"/>
+	<field name="tbbidan_nik_bidan" class="java.lang.String"/>
 	<field name="tbbidan_nama_bidan" class="java.lang.String"/>
 	<field name="tbbidan_alamat" class="java.lang.String"/>
 	<field name="tbbidan_telp" class="java.lang.String"/>
@@ -58,80 +60,98 @@ FROM
 				<reportElement uuid="40cb16ff-4c62-4661-a885-331da0d589ed" x="-18" y="-38" width="591" height="1"/>
 			</line>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="0" y="0" width="111" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="0" y="0" width="74" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="111" y="0" width="165" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="166" y="0" width="140" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="276" y="0" width="138" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="306" y="0" width="138" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="414" y="0" width="141" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="444" y="0" width="111" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="74" y="0" width="92" height="20"/>
 			</rectangle>
 			<staticText>
-				<reportElement uuid="c51d2c35-a6bb-4971-a459-b38e6cac0178" x="0" y="0" width="111" height="20"/>
+				<reportElement uuid="c51d2c35-a6bb-4971-a459-b38e6cac0178" x="0" y="0" width="74" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1e5b6b8a-0bfd-4b08-abc7-261f010ed7b3" x="111" y="0" width="165" height="20"/>
+				<reportElement uuid="1e5b6b8a-0bfd-4b08-abc7-261f010ed7b3" x="166" y="0" width="140" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NAMA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7a1e9cac-49cb-4bd4-9376-090c7597b28e" x="276" y="0" width="138" height="20"/>
+				<reportElement uuid="7a1e9cac-49cb-4bd4-9376-090c7597b28e" x="306" y="0" width="138" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[ALAMAT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="51fcf489-dc66-481a-b823-dded8ca97451" x="414" y="0" width="141" height="20"/>
+				<reportElement uuid="51fcf489-dc66-481a-b823-dded8ca97451" x="444" y="0" width="111" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[NO TELEPON]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f5ef40df-809d-46e1-89df-78b34fbed1a7" x="74" y="0" width="92" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIK BIDAN]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="0" y="0" width="111" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="0" y="0" width="74" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="111" y="0" width="165" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="166" y="0" width="140" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="276" y="0" width="138" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="306" y="0" width="138" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="414" y="0" width="141" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="444" y="0" width="111" height="20" backcolor="#FF9999"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="74" y="0" width="92" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<textField>
-				<reportElement uuid="234c06c1-1f9f-402d-913f-b79eb0d78672" x="0" y="0" width="111" height="20"/>
+				<reportElement uuid="234c06c1-1f9f-402d-913f-b79eb0d78672" x="0" y="0" width="74" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbbidan_id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="c888e7d7-3265-4ac1-90d3-470301018060" x="127" y="0" width="149" height="20"/>
+				<reportElement uuid="c888e7d7-3265-4ac1-90d3-470301018060" x="182" y="0" width="124" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbbidan_nama_bidan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="09d2ad51-ef00-4fc5-b392-1796dc1db259" x="288" y="0" width="126" height="20"/>
+				<reportElement uuid="09d2ad51-ef00-4fc5-b392-1796dc1db259" x="318" y="0" width="126" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbbidan_alamat}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="589b9e4e-c279-424a-b1d4-b15aefc7a00f" x="425" y="0" width="130" height="20"/>
+				<reportElement uuid="589b9e4e-c279-424a-b1d4-b15aefc7a00f" x="455" y="0" width="100" height="20"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbbidan_telp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4925b89f-58ad-4288-b624-d9586fc6e9f0" x="89" y="0" width="77" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbbidan_nik_bidan}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

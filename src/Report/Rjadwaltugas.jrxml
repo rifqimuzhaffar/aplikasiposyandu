@@ -3,20 +3,20 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
      tbjadwal.`id` AS tbjadwal_id,
      tbjadwal.`bidan` AS tbjadwal_bidan,
+     tbjadwal.`nik_bidan` AS tbjadwal_nik_bidan,
      tbjadwal.`tanggal` AS tbjadwal_tanggal,
-     tbjadwal.`tempat` AS tbjadwal_tempat,
      tbjadwal.`waktu` AS tbjadwal_waktu
 FROM
      `tbjadwal` tbjadwal]]>
 	</queryString>
 	<field name="tbjadwal_id" class="java.lang.String"/>
 	<field name="tbjadwal_bidan" class="java.lang.String"/>
+	<field name="tbjadwal_nik_bidan" class="java.lang.String"/>
 	<field name="tbjadwal_tanggal" class="java.lang.String"/>
-	<field name="tbjadwal_tempat" class="java.lang.String"/>
 	<field name="tbjadwal_waktu" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -53,7 +53,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[JADWAL TUGAS]]></text>
+				<text><![CDATA[JADWAL TUGAS BIDAN]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -89,18 +89,11 @@ FROM
 				<text><![CDATA[BIDAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1b1cb380-9014-4f1e-93f6-3bbd52ad1117" x="222" y="0" width="131" height="20"/>
+				<reportElement uuid="1b1cb380-9014-4f1e-93f6-3bbd52ad1117" x="353" y="0" width="111" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[TANGGAL]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="fa1ec43d-49fd-40fa-bb49-450ca4d33d53" x="353" y="0" width="111" height="20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[TEMPAT]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="e39259db-e76b-4120-8bbf-3a27861308ab" x="464" y="0" width="91" height="20"/>
@@ -108,6 +101,13 @@ FROM
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[WAKTU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b1cb380-9014-4f1e-93f6-3bbd52ad1117" x="222" y="1" width="131" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIK BIDAN]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -139,19 +139,19 @@ FROM
 				<textFieldExpression><![CDATA[$F{tbjadwal_bidan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="fcee2c2b-6f75-4a83-a02c-c92f6868f0e3" x="222" y="0" width="131" height="20"/>
+				<reportElement uuid="fcee2c2b-6f75-4a83-a02c-c92f6868f0e3" x="353" y="0" width="111" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbjadwal_tanggal}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="02359d1a-26a8-4999-84e1-625675d31dd7" x="364" y="0" width="100" height="20"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{tbjadwal_tempat}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="5e8b844f-4697-4924-9fbd-72e04df2b4d0" x="464" y="0" width="91" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbjadwal_waktu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6b2124fc-c854-4103-aa35-0becdf8ea711" x="222" y="0" width="131" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tbjadwal_nik_bidan}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

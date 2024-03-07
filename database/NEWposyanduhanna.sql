@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2024 at 04:34 AM
+-- Generation Time: Mar 07, 2024 at 11:45 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `posyanduhanna`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbbidan`
+--
+
+CREATE TABLE `tbbidan` (
+  `id` varchar(50) NOT NULL,
+  `nik_bidan` varchar(50) NOT NULL,
+  `nama_bidan` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `telp` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbbidan`
+--
+
+INSERT INTO `tbbidan` (`id`, `nik_bidan`, `nama_bidan`, `alamat`, `telp`) VALUES
+('BD001', '123', 'dwqqw', 'dqwdq', '2314414'),
+('BD002', '1234', '2rqwrqwr', 'qrqrq', '214141');
 
 -- --------------------------------------------------------
 
@@ -43,11 +65,8 @@ CREATE TABLE `tbdataanak` (
 --
 
 INSERT INTO `tbdataanak` (`id`, `nama_anak`, `nik`, `tanggallahir`, `golongandarah`, `kelamin`, `berat`, `tinggi`) VALUES
-('DA001', 'gatau', '0001', '2024-02-15', 'A', 'L', '3,4KG', '33CM'),
-('DA002', 'qrqr', '0002', '2024-02-20', 'AB', 'P', '3,1KG', '29CM'),
-('DA003', 'gatau', '0003', '2024-02-23', 'A', 'L', '3,6KG', '40CM'),
-('DA004', 'saya', '0004', '2024-02-22', 'AB', 'P', '3,5KG', '34CM'),
-('DA005', 'dia', '0005', '2024-02-01', 'A', 'L', '3,1KG', '30CM');
+('DA001', 'fawa', '123', '2024-03-07', 'AB', 'Perempuan', '11KG', '44CM'),
+('DA002', 'dwqdwqp', '124', '2024-03-01', 'B', 'Laki-Laki', '22KG', '113CM');
 
 -- --------------------------------------------------------
 
@@ -57,8 +76,9 @@ INSERT INTO `tbdataanak` (`id`, `nama_anak`, `nik`, `tanggallahir`, `golongandar
 
 CREATE TABLE `tbjadwal` (
   `id` varchar(50) NOT NULL,
+  `bidan` varchar(50) NOT NULL,
+  `nik_bidan` varchar(50) NOT NULL,
   `tanggal` varchar(50) NOT NULL,
-  `tempat` varchar(50) NOT NULL,
   `waktu` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -66,9 +86,9 @@ CREATE TABLE `tbjadwal` (
 -- Dumping data for table `tbjadwal`
 --
 
-INSERT INTO `tbjadwal` (`id`, `tanggal`, `tempat`, `waktu`) VALUES
-('JD001', 'Rabu, 21 Februari 2024', 'Sekretariat RW 06', '09.00 - Selesai'),
-('JD002', 'Rabu, 28 Februari 2024', 'Posyandu RW 06', '10.00 - Selesai');
+INSERT INTO `tbjadwal` (`id`, `bidan`, `nik_bidan`, `tanggal`, `waktu`) VALUES
+('JD001', '2rqwrqwr', '1234', 'Kamis, 14 Mar 2024', 'ffff'),
+('JD002', 'dwqqw', '123', 'Jumat, 15 Maret 2024', 'fwfq');
 
 -- --------------------------------------------------------
 
@@ -77,27 +97,25 @@ INSERT INTO `tbjadwal` (`id`, `tanggal`, `tempat`, `waktu`) VALUES
 --
 
 CREATE TABLE `tbkondisi` (
-  `id` varchar(99) NOT NULL,
+  `id` varchar(50) NOT NULL,
   `idkunjungan` varchar(50) NOT NULL,
-  `nama_anak` varchar(99) NOT NULL,
-  `usia` varchar(99) NOT NULL,
+  `nama_anak` varchar(50) NOT NULL,
+  `nama_bidan` varchar(50) NOT NULL,
+  `usia` varchar(50) NOT NULL,
   `lingkarkepala` varchar(50) NOT NULL,
   `lingkarlengan` varchar(50) NOT NULL,
-  `berat` varchar(99) NOT NULL,
-  `tinggi` varchar(99) NOT NULL,
-  `kondisi` varchar(99) NOT NULL
+  `berat` varchar(50) NOT NULL,
+  `tinggi` varchar(50) NOT NULL,
+  `kondisi` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbkondisi`
 --
 
-INSERT INTO `tbkondisi` (`id`, `idkunjungan`, `nama_anak`, `usia`, `lingkarkepala`, `lingkarlengan`, `berat`, `tinggi`, `kondisi`) VALUES
-('KA001', 'KJ001', 'gatau', '1 Bulan', '12 CM', '6,4 CM', '3,5 KG', '33 CM', 'Sehat'),
-('KA002', 'KJ002', 'qrqr', '2 Bulan', '13 CM', '5,5 CM', '3,4 KG', '34 CM', 'Sakit'),
-('KA003', 'KJ003', 'bingung', '10 Bulan', '15 CM', '7,4 CM', '4,3 KG', '50 CM', 'Pelayanan Kesehatan'),
-('KA004', 'KJ004', 'saya', '11 Bulan', '12 CM', '6,5 CM', '3,5 KG', '40 CM', 'Sehat'),
-('KA005', 'KJ005', 'dia', '12 Bulan', '15 CM', '4,9 CM', '4,0 KG', '44 CM', 'Pelayanan Kesehatan');
+INSERT INTO `tbkondisi` (`id`, `idkunjungan`, `nama_anak`, `nama_bidan`, `usia`, `lingkarkepala`, `lingkarlengan`, `berat`, `tinggi`, `kondisi`) VALUES
+('KA001', 'KJ001', 'fawa', '2rqwrqwr', '12 Bulan', '22 CM', '21 CM', '14 KG', '41 CM', 'wqdqwdqw'),
+('KA002', 'KJ002', 'dwqdwq', 'dwqqw', '22 Bulan', '421 CM', '24141 CM', '1421 KG', '4214 CM', '');
 
 -- --------------------------------------------------------
 
@@ -118,36 +136,8 @@ CREATE TABLE `tbkunjungan` (
 --
 
 INSERT INTO `tbkunjungan` (`tgl`, `id`, `nama_anak`, `nama_orangtua`, `rt`) VALUES
-('2024-02-17', 'KJ001', 'gatau', 'okwdo', 'RT 02'),
-('2024-02-20', 'KJ002', 'qrqr', 'dwqdq', 'RT 04'),
-('2024-02-09', 'KJ003', 'bingung', 'asfsafa', 'RT 07'),
-('2024-02-12', 'KJ004', 'saya', 'baba', 'RT 06'),
-('2024-02-12', 'KJ005', 'dia', 'sasa', 'RT 01');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbpelayanan`
---
-
-CREATE TABLE `tbpelayanan` (
-  `id` varchar(99) NOT NULL,
-  `nama_anak` varchar(99) NOT NULL,
-  `usia` varchar(99) NOT NULL,
-  `kondisi` varchar(99) NOT NULL,
-  `imunisasi` varchar(99) NOT NULL,
-  `vitamin` varchar(99) NOT NULL,
-  `catatan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbpelayanan`
---
-
-INSERT INTO `tbpelayanan` (`id`, `nama_anak`, `usia`, `kondisi`, `imunisasi`, `vitamin`, `catatan`) VALUES
-('PA001', 'qrqr', '2 Bulan', 'Sakit', 'BCG', 'VITAMIN A', ''),
-('PA002', 'bingung', '10 Bulan', 'Pelayanan Kesehatan', 'POLIO', 'SIRUP BESI', ''),
-('PA003', 'dia', '12 Bulan', 'Pelayanan Kesehatan', 'POLIO', '-', 'dwadadwadwadwa');
+('2024-03-14', 'KJ001', 'fawa', 'khkhnk', 'RT 23'),
+('2024-03-28', 'KJ002', 'dwqdwq', 'fffffffffff', 'RT 22');
 
 -- --------------------------------------------------------
 
@@ -158,9 +148,12 @@ INSERT INTO `tbpelayanan` (`id`, `nama_anak`, `usia`, `kondisi`, `imunisasi`, `v
 CREATE TABLE `tbpendaftaran` (
   `tgl` date NOT NULL,
   `id` varchar(50) NOT NULL,
+  `nik_anak` varchar(50) NOT NULL,
   `nama_anak` varchar(50) NOT NULL,
+  `usia` varchar(50) NOT NULL,
+  `imunisasi` varchar(50) NOT NULL,
+  `vitamin` varchar(50) NOT NULL,
   `nama_orangtua` varchar(50) NOT NULL,
-  `alamat` varchar(99) NOT NULL,
   `nohp` varchar(50) NOT NULL,
   `jenis_kb` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -169,12 +162,9 @@ CREATE TABLE `tbpendaftaran` (
 -- Dumping data for table `tbpendaftaran`
 --
 
-INSERT INTO `tbpendaftaran` (`tgl`, `id`, `nama_anak`, `nama_orangtua`, `alamat`, `nohp`, `jenis_kb`) VALUES
-('2024-02-12', 'PD001', 'gatau', 'iya', 'jalan jalan', '02040214', 'Spiral'),
-('2024-02-12', 'PD002', 'qrqr', 'rwafw', 'fwafa', '42141', 'Suntik'),
-('2024-02-12', 'PD003', 'bingung', 'sapakek', 'dimana?', '093219039', 'Implan'),
-('2024-02-12', 'PD004', 'saya', 'baba', 'jalan jalan', '2131231', 'Suntik'),
-('2024-02-12', 'PD005', 'dia', 'sasa', 'jalan jauh', '11111', 'Spiral');
+INSERT INTO `tbpendaftaran` (`tgl`, `id`, `nik_anak`, `nama_anak`, `usia`, `imunisasi`, `vitamin`, `nama_orangtua`, `nohp`, `jenis_kb`) VALUES
+('2024-03-07', 'PD001', '123', 'fawa', '13 Bulan', 'DPT', 'VITAMIN A', 'gatau', '533432523', 'Suntik'),
+('2024-03-07', 'PD002', '124', 'dwqdwqp', '12 Bulan', 'POLIO', 'ORALIT BLN', 'jawa', '21412151', 'Implan');
 
 -- --------------------------------------------------------
 
@@ -201,6 +191,13 @@ INSERT INTO `tbuser` (`nama`, `username`, `password`, `repassword`) VALUES
 --
 
 --
+-- Indexes for table `tbbidan`
+--
+ALTER TABLE `tbbidan`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nik_bidan` (`nik_bidan`);
+
+--
 -- Indexes for table `tbdataanak`
 --
 ALTER TABLE `tbdataanak`
@@ -212,7 +209,8 @@ ALTER TABLE `tbdataanak`
 -- Indexes for table `tbjadwal`
 --
 ALTER TABLE `tbjadwal`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nik_bidan` (`nik_bidan`);
 
 --
 -- Indexes for table `tbkondisi`
@@ -227,16 +225,11 @@ ALTER TABLE `tbkunjungan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbpelayanan`
---
-ALTER TABLE `tbpelayanan`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `tbpendaftaran`
 --
 ALTER TABLE `tbpendaftaran`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nik_anak` (`nik_anak`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

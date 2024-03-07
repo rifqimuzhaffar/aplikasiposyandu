@@ -75,13 +75,13 @@ FROM
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="177" y="0" width="81" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="258" y="0" width="88" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="258" y="0" width="77" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="346" y="0" width="61" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="335" y="0" width="61" height="20"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="407" y="0" width="51" height="20"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="393" y="0" width="65" height="20"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="458" y="0" width="47" height="20"/>
@@ -111,21 +111,21 @@ FROM
 				<text><![CDATA[NIK]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ae418eaf-76cb-4527-a8d8-f84ee7af4f4d" x="258" y="0" width="88" height="20"/>
+				<reportElement uuid="ae418eaf-76cb-4527-a8d8-f84ee7af4f4d" x="258" y="0" width="77" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="fcf94094-4bf6-448d-a208-8eb21f018d5c" x="346" y="0" width="61" height="20"/>
+				<reportElement uuid="fcf94094-4bf6-448d-a208-8eb21f018d5c" x="335" y="0" width="61" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Gol. Darah]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b7b4d882-9865-4ccf-b5fb-a80421fbd353" x="407" y="0" width="51" height="20"/>
+				<reportElement uuid="b7b4d882-9865-4ccf-b5fb-a80421fbd353" x="396" y="0" width="62" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
@@ -159,13 +159,13 @@ FROM
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="177" y="0" width="81" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="258" y="0" width="88" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="258" y="0" width="77" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="346" y="0" width="61" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="335" y="0" width="61" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
-				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="407" y="0" width="51" height="20" backcolor="#FF9999"/>
+				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="393" y="0" width="65" height="20" backcolor="#FF9999"/>
 			</rectangle>
 			<rectangle>
 				<reportElement uuid="1cbf05b7-d994-45f9-895c-08bcaecfe3d7" x="458" y="0" width="47" height="20" backcolor="#FF9999"/>
@@ -189,17 +189,17 @@ FROM
 				<textFieldExpression><![CDATA[$F{tbdataanak_nik}]]></textFieldExpression>
 			</textField>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement uuid="02fd5735-12fd-4389-85bc-9e9bd2a96be5" x="258" y="0" width="88" height="20"/>
+				<reportElement uuid="02fd5735-12fd-4389-85bc-9e9bd2a96be5" x="258" y="0" width="77" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbdataanak_tanggallahir}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="79cd39a0-3cb8-4095-8bf1-07ff2c51e698" x="346" y="0" width="61" height="20"/>
+				<reportElement uuid="79cd39a0-3cb8-4095-8bf1-07ff2c51e698" x="335" y="0" width="61" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbdataanak_golongandarah}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1a7385c6-7499-4494-b4e3-5a93feb90f0d" x="407" y="0" width="51" height="20"/>
+				<reportElement uuid="1a7385c6-7499-4494-b4e3-5a93feb90f0d" x="396" y="0" width="62" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{tbdataanak_kelamin}]]></textFieldExpression>
 			</textField>
