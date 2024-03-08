@@ -1329,10 +1329,10 @@ public class mainmenu extends javax.swing.JFrame {
         labelnama9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         cbimunisasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbimunisasi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BCG", "DPT", "POLIO", "CAMPAK", "HEPATITIS", " " }));
+        cbimunisasi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "BCG", "DPT", "POLIO", "CAMPAK", "HEPATITIS", " " }));
 
         cbvitamin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbvitamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIRUP BESI", "VITAMIN A", "ORALIT BLN" }));
+        cbvitamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "SIRUP BESI", "VITAMIN A", "ORALIT BLN" }));
 
         labelnama10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelnama10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

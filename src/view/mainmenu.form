@@ -1102,13 +1102,14 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="BCG"/>
-                        <StringItem index="1" value="DPT"/>
-                        <StringItem index="2" value="POLIO"/>
-                        <StringItem index="3" value="CAMPAK"/>
-                        <StringItem index="4" value="HEPATITIS"/>
-                        <StringItem index="5" value=" "/>
+                      <StringArray count="7">
+                        <StringItem index="0" value="-"/>
+                        <StringItem index="1" value="BCG"/>
+                        <StringItem index="2" value="DPT"/>
+                        <StringItem index="3" value="POLIO"/>
+                        <StringItem index="4" value="CAMPAK"/>
+                        <StringItem index="5" value="HEPATITIS"/>
+                        <StringItem index="6" value=" "/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1122,10 +1123,11 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="SIRUP BESI"/>
-                        <StringItem index="1" value="VITAMIN A"/>
-                        <StringItem index="2" value="ORALIT&#xa0;BLN"/>
+                      <StringArray count="4">
+                        <StringItem index="0" value="-"/>
+                        <StringItem index="1" value="SIRUP BESI"/>
+                        <StringItem index="2" value="VITAMIN A"/>
+                        <StringItem index="3" value="ORALIT&#xa0;BLN"/>
                       </StringArray>
                     </Property>
                   </Properties>
