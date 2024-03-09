@@ -148,7 +148,7 @@ public class ReportPendaftaran extends javax.swing.JFrame {
             if (dawal.getDate() != null && dakhir.getDate() != null) {
                 parameter.put("awal", new java.sql.Date(dawal.getDate().getTime()));
                 parameter.put("akhir", new java.sql.Date(dakhir.getDate().getTime()));
-                String namaFile = "src/Report/NewRpendaftaran.jasper";
+                String namaFile = "src/Report/NewReportPendaftaran.jasper";
                 Connection conn = new koneksi().connect();
                 File report_file = new File(namaFile);
                 JasperReport jasperReport = (JasperReport) JRLoader.loadObject(report_file.getPath());

@@ -63,7 +63,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DATA KONDISI KESEHATAN]]></text>
+				<text><![CDATA[DATA HASIL PEMERIKSAAN]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
@@ -265,39 +265,39 @@ FROM
 	<columnFooter>
 		<band height="144" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="788d8d3b-12c4-401c-85fe-f306e24e6482" x="691" y="111" width="111" height="20"/>
+				<reportElement uuid="788d8d3b-12c4-401c-85fe-f306e24e6482" x="676" y="111" width="126" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Sri Sulastri]]></text>
 			</staticText>
 			<textField pattern="dd MMMMM yyyy">
-				<reportElement uuid="cb04600e-4f25-40ce-bd3f-6bd31925067d" x="723" y="11" width="79" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
+				<reportElement uuid="cb04600e-4f25-40ce-bd3f-6bd31925067d" x="708" y="11" width="94" height="15" forecolor="#000000" backcolor="#FFFFFF"/>
 				<textElement>
 					<font fontName="Times New Roman" size="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd MMMMM yyyy", new java.util.Locale("id", "ID")).format(new java.util.Date())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("EEEE dd MMMMM yyyy", new java.util.Locale("id", "ID")).format(new java.util.Date())]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="1cce5506-6913-4e3e-a484-a504cf782e25" x="691" y="41" width="111" height="15"/>
+				<reportElement uuid="1cce5506-6913-4e3e-a484-a504cf782e25" x="676" y="41" width="126" height="15"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Kepala,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="2f9999bd-44e5-4a4f-be1a-e828c5c22a1a" x="691" y="26" width="111" height="15"/>
+				<reportElement uuid="2f9999bd-44e5-4a4f-be1a-e828c5c22a1a" x="676" y="26" width="126" height="15"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="Times New Roman"/>
 				</textElement>
 				<text><![CDATA[Posyandu Anyelir]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f65470a8-e867-4333-826b-3080f714838c" x="691" y="11" width="32" height="15"/>
+				<reportElement uuid="f65470a8-e867-4333-826b-3080f714838c" x="676" y="11" width="32" height="15"/>
 				<textElement>
 					<font fontName="Times New Roman"/>
 				</textElement>
-				<text><![CDATA[Jakarta, ]]></text>
+				<text><![CDATA[Depok, ]]></text>
 			</staticText>
 		</band>
 	</columnFooter>

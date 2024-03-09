@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2024 at 11:45 AM
+-- Generation Time: Mar 09, 2024 at 09:51 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -155,6 +155,7 @@ CREATE TABLE `tbpendaftaran` (
   `vitamin` varchar(50) NOT NULL,
   `nama_orangtua` varchar(50) NOT NULL,
   `nohp` varchar(50) NOT NULL,
+  `alamat` varchar(50) NOT NULL,
   `jenis_kb` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -162,9 +163,9 @@ CREATE TABLE `tbpendaftaran` (
 -- Dumping data for table `tbpendaftaran`
 --
 
-INSERT INTO `tbpendaftaran` (`tgl`, `id`, `nik_anak`, `nama_anak`, `usia`, `imunisasi`, `vitamin`, `nama_orangtua`, `nohp`, `jenis_kb`) VALUES
-('2024-03-07', 'PD001', '123', 'fawa', '13 Bulan', 'DPT', 'VITAMIN A', 'gatau', '533432523', 'Suntik'),
-('2024-03-07', 'PD002', '124', 'dwqdwqp', '12 Bulan', 'POLIO', 'ORALIT BLN', 'jawa', '21412151', 'Implan');
+INSERT INTO `tbpendaftaran` (`tgl`, `id`, `nik_anak`, `nama_anak`, `usia`, `imunisasi`, `vitamin`, `nama_orangtua`, `nohp`, `alamat`, `jenis_kb`) VALUES
+('2024-03-07', 'PD001', '123', 'fawa', '13 Bulan', 'DPT', 'VITAMIN A', 'gatau', '533432523', 'jakarta', 'Suntik'),
+('2024-03-07', 'PD002', '124', 'dwqdwqp', '12 Bulan', 'POLIO', 'ORALIT BLN', 'jawa', '21412151', 'depok', 'Implan');
 
 -- --------------------------------------------------------
 

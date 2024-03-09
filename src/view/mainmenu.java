@@ -203,6 +203,7 @@ public class mainmenu extends javax.swing.JFrame {
         tusiaanak.setText("");
         tnamaorangtua.setText("");
         tnohp.setText("");
+        talamat.setText("");
         cbjeniskb.setSelectedIndex(0);
         cbimunisasi.setSelectedIndex(0);
         cbvitamin.setSelectedIndex(0);
@@ -254,11 +255,11 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable1(){
-    Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","TELP","JENIS KB"};
+    Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","TELP","ALAMAT","JENIS KB"};
     tabmode = new DefaultTableModel(null, Baris);
     tabelpendaftaran.setModel(tabmode);
     try {  
-        String sql = "Select DATE_FORMAT(tgl, '%d-%m-%Y') AS myDate,id,nik_anak,nama_anak,usia,imunisasi,vitamin,nama_orangtua,nohp,jenis_kb  from tbpendaftaran";
+        String sql = "Select DATE_FORMAT(tgl, '%d-%m-%Y') AS myDate,id,nik_anak,nama_anak,usia,imunisasi,vitamin,nama_orangtua,nohp,alamat,jenis_kb  from tbpendaftaran";
     
         java.sql.Statement stat = conn.createStatement();
         ResultSet hasil = stat.executeQuery(sql);
@@ -272,9 +273,10 @@ public class mainmenu extends javax.swing.JFrame {
             String g = hasil.getString("vitamin");
             String h = hasil.getString("nama_orangtua");
             String i = hasil.getString("nohp");
-            String j = hasil.getString("jenis_kb");
+            String j = hasil.getString("alamat");
+            String k = hasil.getString("jenis_kb");
             
-            String[] data={a,b,c,d,e,f,g,h,i,j};
+            String[] data={a,b,c,d,e,f,g,h,i,j,k};
             tabmode.addRow(data);
         }
     }catch (Exception e){
@@ -593,6 +595,8 @@ public class mainmenu extends javax.swing.JFrame {
         cbimunisasi = new javax.swing.JComboBox<>();
         cbvitamin = new javax.swing.JComboBox<>();
         labelnama10 = new javax.swing.JLabel();
+        labelgih6 = new javax.swing.JLabel();
+        talamat = new javax.swing.JTextField();
         paneldataanak = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -785,7 +789,7 @@ public class mainmenu extends javax.swing.JFrame {
         panelmenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153), new java.awt.Color(255, 153, 153)));
 
         bjadwal.setBackground(new java.awt.Color(148, 123, 192));
-        bjadwal.setText("JADWAL TUGAS");
+        bjadwal.setText("DATA TUGAS");
         bjadwal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 bjadwalMouseEntered(evt);
@@ -1339,6 +1343,23 @@ public class mainmenu extends javax.swing.JFrame {
         labelnama10.setText("VITAMIN");
         labelnama10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        labelgih6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        labelgih6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labelgih6.setText("ALAMAT");
+        labelgih6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        talamat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        talamat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                talamatActionPerformed(evt);
+            }
+        });
+        talamat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                talamatKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelpendaftaranLayout = new javax.swing.GroupLayout(panelpendaftaran);
         panelpendaftaran.setLayout(panelpendaftaranLayout);
         panelpendaftaranLayout.setHorizontalGroup(
@@ -1403,7 +1424,11 @@ public class mainmenu extends javax.swing.JFrame {
                                     .addGroup(panelpendaftaranLayout.createSequentialGroup()
                                         .addComponent(labelu, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tnamaorangtua, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(tnamaorangtua, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelpendaftaranLayout.createSequentialGroup()
+                                        .addComponent(labelgih6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(talamat, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(panelpendaftaranLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1416,40 +1441,39 @@ public class mainmenu extends javax.swing.JFrame {
                 .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bcetak1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tidpendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tnamaorangtua, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelpendaftaranLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelid, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tidpendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelu, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tnamaorangtua, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelgih, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tnohp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(labelnama4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tnikanakpendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelnama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tnamaanak, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelu6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tusiaanak, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelu7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelnama9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelpendaftaranLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbjeniskb, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelnama8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelgih, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tnohp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelnama4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tnikanakpendaftaran, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelnama, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tnamaanak, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelgih6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(talamat, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelu6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tusiaanak, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelu7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbjeniskb, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelnama8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbimunisasi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelnama9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(panelpendaftaranLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbvitamin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2717,7 +2741,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("JADWAL TUGAS");
+        jLabel17.setText("DATA TUGAS");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2909,7 +2933,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         labelu11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelu11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelu11.setText("NIK BIDAN");
+        labelu11.setText("KODE BIDAN");
         labelu11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         cbnamabidanjadwal.addActionListener(new java.awt.event.ActionListener() {
@@ -3217,7 +3241,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         labelu16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelu16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelu16.setText("NIK BIDAN");
+        labelu16.setText("KODE BIDAN");
         labelu16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout panelbidanLayout = new javax.swing.GroupLayout(panelbidan);
@@ -4708,7 +4732,7 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bcetak1MouseEntered
 
     private void bcaripendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcaripendaftaranActionPerformed
-        Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","NOMORHP","JENIS KB"};
+        Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","TELP","ALAMAT","JENIS KB"};
         tabmode = new DefaultTableModel(null, Baris);
         tabelpendaftaran.setModel(tabmode);
         String cari = tcaripendaftaran.getText();
@@ -4724,6 +4748,7 @@ public class mainmenu extends javax.swing.JFrame {
             + "OR imunisasi LIKE '%" + cari + "%' "
             + "OR vitamin LIKE '%" + cari + "%' "
             + "OR nohp LIKE '%" + cari + "%' "
+            + "OR alamat LIKE '%" + cari + "%' "
             + "OR jenis_kb LIKE '%" + cari + "%' "
             + "ORDER BY id";
 
@@ -4739,9 +4764,10 @@ public class mainmenu extends javax.swing.JFrame {
             String g = hasil.getString("vitamin");
             String h = hasil.getString("nama_orangtua");
             String i = hasil.getString("nohp");
-            String j = hasil.getString("jenis_kb");
+            String j = hasil.getString("alamat");
+            String k = hasil.getString("jenis_kb");
             
-            String[] data={a,b,c,d,e,f,g,h,i,j};
+            String[] data={a,b,c,d,e,f,g,h,i,j,k};
             tabmode.addRow(data);
         }
         }catch (Exception e){
@@ -4814,7 +4840,7 @@ public class mainmenu extends javax.swing.JFrame {
 
     private void bubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bubahActionPerformed
         try{
-            String sql = "update tbpendaftaran set nik_anak=?,nama_anak=?,usia=?,imunisasi=?,vitamin=?,nama_orangtua=?,nohp=?,jenis_kb=? where id=?";
+            String sql = "update tbpendaftaran set nik_anak=?,nama_anak=?,usia=?,imunisasi=?,vitamin=?,nama_orangtua=?,nohp=?,alamat=?,jenis_kb=? where id=?";
             PreparedStatement stat = conn.prepareStatement(sql);
             if (tnamaanak.getText().isEmpty() || tnamaorangtua.getText().isEmpty()
                 || tnohp.getText().isEmpty()) {
@@ -4828,9 +4854,10 @@ public class mainmenu extends javax.swing.JFrame {
                 stat.setString(5, cbvitamin.getSelectedItem().toString());
                 stat.setString(6, tnamaorangtua.getText());
                 stat.setString(7, tnohp.getText());
-                stat.setString(8, cbjeniskb.getSelectedItem().toString());
+                stat.setString(8, talamat.getText());
+                stat.setString(9, cbjeniskb.getSelectedItem().toString());
 
-                stat.setString(9, tidpendaftaran.getText());
+                stat.setString(10, tidpendaftaran.getText());
 
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Data Berhasil diubah");
@@ -4857,14 +4884,14 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bubahMouseEntered
 
     private void bsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsimpanActionPerformed
-        String sql = "insert into tbpendaftaran values (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into tbpendaftaran values (?,?,?,?,?,?,?,?,?,?,?)";
         try{
             String dateString = tgl.getText();
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date date = dateFormat.parse(dateString);
             PreparedStatement stat = conn.prepareStatement(sql);
             if (tidpendaftaran.getText().isEmpty() || tnamaanak.getText().isEmpty() || tnamaorangtua.getText().isEmpty()
-                ||  tnohp.getText().isEmpty()) {
+                || talamat.getText().isEmpty() || tnohp.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Semua data harus terisi", "Notice !!!", JOptionPane.WARNING_MESSAGE);
             } else {
                 stat.setDate(1, new java.sql.Date(date.getTime()));
@@ -4877,7 +4904,8 @@ public class mainmenu extends javax.swing.JFrame {
                 stat.setString(7, cbvitamin.getSelectedItem().toString());
                 stat.setString(8, tnamaorangtua.getText());
                 stat.setString(9, tnohp.getText());
-                stat.setString(10, cbjeniskb.getSelectedItem().toString());
+                stat.setString(10, talamat.getText());
+                stat.setString(11, cbjeniskb.getSelectedItem().toString());
                 stat.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
                 kosong1();
@@ -4935,6 +4963,7 @@ public class mainmenu extends javax.swing.JFrame {
         String g = tabmode.getValueAt (bar, 7).toString();
         String h = tabmode.getValueAt (bar, 8).toString();
         String i = tabmode.getValueAt (bar, 9).toString();
+        String j = tabmode.getValueAt (bar, 10).toString();
 
         tidpendaftaran.setText(a);
         tnikanakpendaftaran.setText(b);
@@ -4945,7 +4974,8 @@ public class mainmenu extends javax.swing.JFrame {
         cbvitamin.setSelectedItem(f);
         tnamaorangtua.setText(g);
         tnohp.setText(h);
-        cbjeniskb.setSelectedItem(i);
+        talamat.setText(i);
+        cbjeniskb.setSelectedItem(j);
     }//GEN-LAST:event_tabelpendaftaranMouseClicked
 
     private void tnikbidanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tnikbidanKeyTyped
@@ -4996,6 +5026,14 @@ public class mainmenu extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_tusiaanakKeyTyped
+
+    private void talamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_talamatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_talamatActionPerformed
+
+    private void talamatKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_talamatKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_talamatKeyTyped
     
      /**
      * @param args the command line arguments
@@ -5124,6 +5162,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JLabel labelgih3;
     private javax.swing.JLabel labelgih4;
     private javax.swing.JLabel labelgih5;
+    private javax.swing.JLabel labelgih6;
     private javax.swing.JLabel labelid;
     private javax.swing.JLabel labelid1;
     private javax.swing.JLabel labelid2;
@@ -5180,6 +5219,7 @@ public class mainmenu extends javax.swing.JFrame {
     private javax.swing.JTable tabelkondisi;
     private javax.swing.JTable tabelkunjungan;
     private javax.swing.JTable tabelpendaftaran;
+    private javax.swing.JTextField talamat;
     private javax.swing.JTextField talamatbidan;
     private javax.swing.JTextField tberat;
     private javax.swing.JTextField tberatlahir;
