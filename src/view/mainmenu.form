@@ -3183,7 +3183,7 @@
                           <Font name="Tahoma" size="14" style="1"/>
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="text" type="java.lang.String" value="DATA TUGAS"/>
+                        <Property name="text" type="java.lang.String" value="DATA JADWAL"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -3194,7 +3194,7 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="TANGGAL"/>
+                    <Property name="text" type="java.lang.String" value="HARI/TANGGAL"/>
                     <Property name="horizontalTextPosition" type="int" value="0"/>
                   </Properties>
                 </Component>

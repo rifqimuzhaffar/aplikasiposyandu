@@ -100,7 +100,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[NO TELEPON]]></text>
+				<text><![CDATA[NO HP]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="f5ef40df-809d-46e1-89df-78b34fbed1a7" x="74" y="0" width="92" height="20"/>

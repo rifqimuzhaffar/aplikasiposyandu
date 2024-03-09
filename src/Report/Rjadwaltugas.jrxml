@@ -93,7 +93,7 @@ FROM
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[TANGGAL]]></text>
+				<text><![CDATA[HARI/TANGGAL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="e39259db-e76b-4120-8bbf-3a27861308ab" x="464" y="0" width="91" height="20"/>

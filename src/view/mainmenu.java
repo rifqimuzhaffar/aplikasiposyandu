@@ -255,7 +255,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable1(){
-    Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","TELP","ALAMAT","JENIS KB"};
+    Object [] Baris = {"TANGGAL","ID PENDAFTARAN","NIK ANAK","NAMA ANAK","USIA ANAK","IMUNISASI","VITAMIN","NAMA ORANG TUA","NO HP","ALAMAT","JENIS KB"};
     tabmode = new DefaultTableModel(null, Baris);
     tabelpendaftaran.setModel(tabmode);
     try {  
@@ -284,7 +284,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable2(){
-    Object [] Baris = {"ID","NAMA ANAK","NIK","TANGGAL LAHIR","GOLONGAN DARAH","KELAMIN","BERAT","TINGGI"};
+    Object [] Baris = {"ID ANAK","NAMA ANAK","NIK","TANGGAL LAHIR","GOLONGAN DARAH","JENIS KELAMIN","BERAT BADAN LAHIR","TINGGI BADAN LAHIR"};
     tabmode1 = new DefaultTableModel(null, Baris);
     tabeldataanak.setModel(tabmode1);
     try {  
@@ -310,7 +310,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable3(){
-    Object [] Baris = {"TANGGAL KUNJUNGAN","ID","NAMA ANAK","NAMA ORANG TUA","RT"};
+    Object [] Baris = {"TANGGAL KUNJUNGAN","ID KUNJUNGAN","NAMA ANAK","NAMA ORANG TUA/WALI","RT"};
     tabmode2 = new DefaultTableModel(null, Baris);
     tabelkunjungan.setModel(tabmode2);
     try {  
@@ -333,7 +333,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable4(){
-    Object [] Baris = {"ID","ID KUNJUNGAN","NAMA ANAK","BIDAN","USIA","LK","LL","BB","TB","KONDISI"};
+    Object [] Baris = {"ID PEMERIKSAAN","ID KUNJUNGAN","NAMA ANAK","BIDAN","USIA ANAK","LK","LL","BB","TB","KONDISI"};
     tabmode3 = new DefaultTableModel(null, Baris);
     tabelkondisi.setModel(tabmode3);
     String cari = tcarikondisi.getText();
@@ -373,7 +373,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable6(){
-    Object [] Baris = {"ID","BIDAN","NIK BIDAN","HARI/TANGGAL","WAKTU"};
+    Object [] Baris = {"ID","NAMA BIDAN","KODE BIDAN","HARI/TANGGAL","WAKTU"};
     tabmode5 = new DefaultTableModel(null, Baris);
     tabeljadwal.setModel(tabmode5);
     try {  
@@ -396,7 +396,7 @@ public class mainmenu extends javax.swing.JFrame {
     }
     
     protected void datatable7(){
-    Object [] Baris = {"ID","NIK","NAMA","ALAMAT","NO HP"};
+    Object [] Baris = {"ID","KODE BIDAN","NAMA","ALAMAT","NO HP"};
     tabmode6 = new DefaultTableModel(null, Baris);
     tabelbidan.setModel(tabmode6);
     try {  
@@ -2743,7 +2743,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("DATA TUGAS");
+        jLabel17.setText("DATA JADWAL");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -2758,7 +2758,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         labelid7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         labelid7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labelid7.setText("TANGGAL");
+        labelid7.setText("HARI/TANGGAL");
         labelid7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         tabeljadwal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -3676,7 +3676,7 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bcaridataanakMouseExited
 
     private void bcaridataanakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcaridataanakActionPerformed
-        Object [] Baris = {"ID","NAMA ANAK","NIK","TANGGAL LAHIR","GOLONGAN DARAH","KELAMIN","BERAT","TINGGI"};
+        Object [] Baris = {"ID ANAK","NAMA ANAK","NIK","TANGGAL LAHIR","GOLONGAN DARAH","JENIS KELAMIN","BERAT BADAN LAHIR","TINGGI BADAN LAHIR"};
             tabmode1 = new DefaultTableModel(null, Baris);
             tabeldataanak.setModel(tabmode1);
             String cari = tcaridataanak.getText();
@@ -3914,7 +3914,7 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bcarikunjunganMouseExited
 
     private void bcarikunjunganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcarikunjunganActionPerformed
-        Object [] Baris = {"TANGGAL KUNJUNGAN","ID","NAMA ANAK","NAMA ORANG TUA","RT"};
+        Object [] Baris = {"TANGGAL KUNJUNGAN","ID KUNJUNGAN","NAMA ANAK","NAMA ORANG TUA/WALI","RT"};
             tabmode2 = new DefaultTableModel(null, Baris);
             tabelkunjungan.setModel(tabmode2);
             String cari = tcarikunjungan.getText();
@@ -4734,7 +4734,7 @@ public class mainmenu extends javax.swing.JFrame {
     }//GEN-LAST:event_bcetak1MouseEntered
 
     private void bcaripendaftaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcaripendaftaranActionPerformed
-        Object [] Baris = {"TANGGAL","ID","NIK ANAK","NAMA ANAK","USIA","IMUNISASI","VITAMIN","ORANG TUA","TELP","ALAMAT","JENIS KB"};
+        Object [] Baris = {"TANGGAL","ID PENDAFTARAN","NIK ANAK","NAMA ANAK","USIA ANAK","IMUNISASI","VITAMIN","NAMA ORANG TUA","NO HP","ALAMAT","JENIS KB"};
         tabmode = new DefaultTableModel(null, Baris);
         tabelpendaftaran.setModel(tabmode);
         String cari = tcaripendaftaran.getText();
