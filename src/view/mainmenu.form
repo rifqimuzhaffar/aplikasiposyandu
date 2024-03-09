@@ -230,7 +230,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="7b" red="94" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="DATA TUGAS"/>
+                <Property name="text" type="java.lang.String" value="DATA JADWAL"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bjadwalMouseEntered"/>
@@ -627,22 +627,26 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelnama" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="tnamaanak" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="labelgih6" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="talamat" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelnama" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="tnamaanak" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelu6" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="tusiaanak" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="labelu7" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="cbjeniskb" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="labelnama8" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelu6" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="tusiaanak" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="labelu7" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
