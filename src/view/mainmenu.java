@@ -4599,7 +4599,7 @@ public class mainmenu extends javax.swing.JFrame {
             try{
                 String sql = "update tbbidan set nik_bidan=?,nama_bidan=?,alamat=?,telp=? where id=?";
                 PreparedStatement stat = conn.prepareStatement(sql);
-                stat.setString(1, tnamabidan.getText());
+                stat.setString(1, tnikbidan.getText());
                 stat.setString(2, tnamabidan.getText());
                 stat.setString(3, talamatbidan.getText());
                 stat.setString(4, tnohpbidan.getText());
@@ -5010,7 +5010,6 @@ public class mainmenu extends javax.swing.JFrame {
             while(hasil.next()){
                 String nama = hasil.getString("nama_anak");
                 tnamaanak.setText(nama);
-                tnamaanak.setEnabled(false);
             }
         } catch (Exception e) {}
     }//GEN-LAST:event_tnikanakpendaftaranKeyPressed
